@@ -13,7 +13,7 @@ function login(){
         return ;
     }
     var xmlHttp = new XMLHttpRequest();
-    var url='https://jsonplaceholder.typicode.com/todos/1';
+    var url='http://localhost:8080/login';
     xmlHttp.open( "GET", url, false ); 
     xmlHttp.send( null );
     console.log(xmlHttp.responseText);
@@ -33,10 +33,21 @@ function emailValidation(email){
           return false;
            }
  }
+
 function forgotFunction(){
     console.log("forgotFunction called");
-    document.getElementById("emailToReset").value ='';
-    document.getElementById("forgotSuccess").innerHTML = "Your password is sent to your email id.";
+
+    var xmlHttp = new XMLHttpRequest();
+    var url='http://localhost:8080/forgotPassword';
+    xmlHttp.open( "GET", url, false ); 
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
+
+    if (xmlHttp.status == 200){ 
+        document.getElementById("emailToReset").value ='';
+        document.getElementById("forgotSuccess").innerHTML = "Your password is sent to your email id.";
+        return;
+    }
 }
  function forgotPassword(){
      
@@ -47,7 +58,17 @@ function goToLoginPage(){
     window.location= './';
 }
 function logout(){
-    window.location= './';
+
+    var xmlHttp = new XMLHttpRequest();
+    var url='http://localhost:8080/logout';
+    xmlHttp.open( "GET", url, false ); 
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
+
+    if (xmlHttp.status == 200){ 
+        window.location= './';
+        return;
+    }
 }
 
 
