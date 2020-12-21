@@ -1,0 +1,6 @@
+dao\EventDao.class
+models\User.class
+conf\Routes.class
+controllers\LoginLogoutController.class
+dao\UserDao.class
+models\UserDto.class
