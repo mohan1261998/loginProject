@@ -2,11 +2,7 @@ function login(){
 
     var email = document.getElementById('emailId').value;
     console.log("email= ",email);
-    if(email == "mohan@gmail.in"){
-        
-        document.getElementById("loginFailed").innerHTML = "Password or email is incorrect, Please try again";
-        return;
-    }
+
 
     if(!emailValidation(email)){
         document.getElementById("emailValidation").innerHTML = "Please enter a valid email";
@@ -21,6 +17,9 @@ function login(){
     if (xmlHttp.status == 200){ 
             window.location= './home';
             return;
+    }else{
+        document.getElementById("loginFailed").innerHTML = "Password or email is incorrect, Please try again";
+        return;
     }
     return false;
    
